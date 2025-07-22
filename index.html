@@ -50,13 +50,13 @@
             <div class="next-event-box">
                 <h3 class="Medium">Next Event:</h3>
                 <div class="event-date">
-                    <span class="day">22</span>
-                    <span class="month">Oct</span>
+                    <span class="day"> </span>
+                    <span class="month"> </span>
                 </div>
                 <div class="event-info">
-                    <p class="event-title">Welcome party</p>
-                    <p class="event-time">TBA</p>
-                    <p class="event-location">Bar Room</p>
+                    <p class="event-title">No events Scheduled</p>
+                    <p class="event-time"> Keep checking the website! </p>
+                    <p class="event-location"> </p>
                 </div>
             </div>
             <a href="events.html" class="event-button" target="_blank">
@@ -103,7 +103,7 @@
         <img src="Sinan.jpeg" alt="Sinan">
         <div class="overlay">
             <p>Languages: <br>
-            German, English, Arabic, Serbo-Croatan</p>
+            German, English, Arabic, Serbo-Croatian</p>
         </div>
         <p class="Tutors-name">Sinan Qazzaz</p>
       </div>
@@ -119,6 +119,63 @@
   </section>
     
   </section>
+
+  <script>
+    const databaseUrl = 'https://straubievents-default-rtdb.europe-west1.firebasedatabase.app/events.json';
+  
+    // Helper to format date parts like day number and month short name
+    function formatDateParts(dateStr, timeStr) {
+      const date = new Date(dateStr + 'T' + timeStr);
+      const day = date.getDate();
+      const month = date.toLocaleString('default', { month: 'short' });
+      return { day, month };
+    }
+  
+    // Find next upcoming event (date+time > now)
+    function findNextEvent(events) {
+      const now = new Date();
+      const futureEvents = events
+        .filter(e => {
+          const eventDate = new Date(e.Date + 'T' + e.Time);
+          return eventDate > now;
+        })
+        .sort((a, b) => new Date(a.Date + 'T' + a.Time) - new Date(b.Date + 'T' + b.Time));
+      return futureEvents[0];
+    }
+  
+    async function loadNextEvent() {
+      try {
+        const res = await fetch(databaseUrl);
+        if (!res.ok) throw new Error('Failed to fetch events');
+        const data = await res.json();
+  
+        const events = Object.values(data || {});
+        const nextEvent = findNextEvent(events);
+  
+        if (!nextEvent) {
+          console.log('No upcoming events found');
+          return;
+        }
+  
+        // Format date parts for display
+        const { day, month } = formatDateParts(nextEvent.Date, nextEvent.Time);
+  
+        // Update the DOM
+        document.querySelector('.next-event-box .day').textContent = day;
+        document.querySelector('.next-event-box .month').textContent = month;
+        document.querySelector('.next-event-box .event-title').textContent = nextEvent.Title;
+        // If time is empty or "TBA", show 'TBA' else format nicely
+        const timeDisplay = nextEvent.Time && nextEvent.Time !== 'TBA' ? nextEvent.Time : 'TBA';
+        document.querySelector('.next-event-box .event-time').textContent = timeDisplay;
+        document.querySelector('.next-event-box .event-location').textContent = nextEvent.Location;
+      } catch (err) {
+        console.error('Error loading next event:', err);
+      }
+    }
+  
+    window.addEventListener('DOMContentLoaded', loadNextEvent);
+  </script>
+  
 
 </body>
 </html>
