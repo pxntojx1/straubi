@@ -50,7 +50,7 @@ h4 {
 }
 
 .logo-center {
-    display: block;
+    display: FLEX;
     margin: 0 auto;
     height: 50px;
 }
@@ -490,6 +490,209 @@ h4 {
 
 .placeholder {
     background-color: #008CFF;
+}
+.navbar-inside-straubi {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    z-index:10;
+    background-color: #008CFF;
+}
+
+.navbar-inside-straubi .nav-links li a {
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar-inside-straubi .nav-links li a:hover {
+    color: #002F52;
+}
+
+.navbar-inside-straubi .nav-links {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.straubi {
+    height: 80px;
+    width: 100%;
+    background-color: #008CFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.straubi-logo-center {
+    display:block;
+    height: 50px;
+}
+
+.backhome {
+    display: inline-block;
+    background-color: #008CFF;
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+    font-size:10vh;
+    padding: 20px 20px;
+    margin-top: auto;
+    margin-bottom: 0;
+    width: 50%;
+    text-align: center;
+    font-size: 1.2em;
+    align-items: center;
+}
+
+.about-wurzburg {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Barlow', sans-serif;
+}
+
+.about-wurzburg h2 {
+    font-size: 2em;
+    font-weight: 400;
+    color: #003366;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    max-width: 1100px;
+    width:100%;
+    text-align: left;
+}
+
+.weather-wrapper {
+    max-width: 900px;
+    border-radius: 16px;
+}
+
+
+.directions {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Barlow', sans-serif;
+}
+
+.ammenities {
+        background-color: #D9D9D9;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: 'Barlow', sans-serif;
+}
+
+.ammenities h2 {
+    font-size: 2em;
+    font-weight: 400;
+    color: #003366;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    max-width: 1100px;
+    width:100%;
+    text-align: left;
+}
+
+.header {
+    background-color: #D9D9D9;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Barlow', sans-serif;
+    margin-bottom: 10px;
+}
+
+.header h2 {
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #003366;
+    margin-left: 40px;
+    max-width: 1100px;
+    width:100%;
+    text-align: left;
+}
+
+.header p {
+    margin-bottom: 10px;
+    margin-left: 40px;
+    max-width: 1100px;
+    width:100%;
+    color: black;
+    text-align: left;
+}
+
+.header svg {
+    fill: black;
+}
+
+.directions h2 {
+    font-size: 2em;
+    font-weight: 400;
+    color: #003366;
+    margin-bottom: 20px;
+    margin-left: 40px;
+    max-width: 1100px;
+    width:100%;
+    text-align: left;
+}
+
+.youtube-video-wrapper {
+    margin-bottom: 20px;
+
+}
+
+.event-button-2 {
+    display: inline-block;
+    background-color: white;
+    color: #008CFF;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 15px 15px;
+    border-radius: 16px;
+    margin-top: auto;
+    margin-bottom: 0;
+    width: 100%;
+    transition: background-color 0.3s;
+    transition: ease 0.3s;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.event-button-2:hover {
+    background-color: #80c3fa;
+    transform: translateY(-5px);
+}
+
+.info {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; /* espacio entre el ícono y el texto */
+    font-size: 1.1em;
+    font-weight: 400;
+    color: #003366;
+}
+
+.info svg {
+    width: 20px;
+    height: 20px;
+    fill: #008CFF;
+    flex-shrink: 0;
 }
 
 body {
